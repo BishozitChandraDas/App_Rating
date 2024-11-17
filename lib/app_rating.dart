@@ -37,9 +37,8 @@ class _AppratingState extends State<Apprating> {
       appBar: AppBar(
         title: const Text("App Rating"),
       ),
-      body: Container(
+      body: Padding(
         padding: const EdgeInsets.all(16),
-        width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -49,140 +48,162 @@ class _AppratingState extends State<Apprating> {
             ),
             const SizedBox(height: 20),
 
-            // Question 1
-            const Text(
-              "How was the class?",
-              style: TextStyle(fontSize: 18),
-            ),
-            const SizedBox(height: 10),
-
-            // Rating Bar
-            RatingBar.builder(
-              initialRating: 0,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: false,
-              itemCount: 5,
-              itemPadding: const EdgeInsets.symmetric(horizontal: 4),
-              itemBuilder: (context, _) => const Icon(
-                Icons.star,
-                color: Color.fromARGB(255, 26, 88, 119),
+            // Rectangular Container
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: Colors.grey.shade300,
+                  width: 1,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3), // changes position of shadow
+                  ),
+                ],
               ),
-              onRatingUpdate: (rating) => setState(() {
-                rating1 = rating;
-              }),
-            ),
-            const SizedBox(height: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Question 1
+                  const Text(
+                    "How was the class?",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  const SizedBox(height: 10),
 
-            // Rating display section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Left Part: Rating number
-                Text(
-                  'Rating Number: ${rating1.toInt()}',
-                  style: const TextStyle(fontSize: 16),
-                ),
-                // Right Part: Review text based on rating
-                Text(
-                  getReviewText(rating1),
-                  style: const TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-            const Divider(),
+                  // Rating Bar for Question 1
+                  RatingBar.builder(
+                    initialRating: 0,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: false,
+                    itemCount: 5,
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 4),
+                    itemBuilder: (context, _) => const Icon(
+                      Icons.star,
+                      color: Color.fromARGB(255, 26, 88, 119), 
+                    ),
+                    onRatingUpdate: (rating) => setState(() {
+                      rating1 = rating;
+                    }),
+                  ),
+                  const SizedBox(height: 10),
 
-            // Question 2
-            const Text(
-              "How was the instructor?",
-              style: TextStyle(fontSize: 18),
-            ),
-            const SizedBox(height: 10),
+                  // Rating Display
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Rating Number: ${rating1.toInt()}',
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                      Text(
+                        getReviewText(rating1),
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                  const Divider(),
 
-            // Rating Bar
-            RatingBar.builder(
-              initialRating: 0,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: false,
-              itemCount: 5,
-              itemPadding: const EdgeInsets.symmetric(horizontal: 4),
-              itemBuilder: (context, _) => const Icon(
-                Icons.star,
-                color: Color.fromARGB(255, 26, 88, 119),
+                  // Question 2
+                  const Text(
+                    "How was the instructor?",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  const SizedBox(height: 10),
+
+                  // Rating Bar for Question 2
+                  RatingBar.builder(
+                    initialRating: 0,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: false,
+                    itemCount: 5,
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 4),
+                    itemBuilder: (context, _) => const Icon(
+                      Icons.star,
+                      color: Color.fromARGB(255, 26, 88, 119),
+                    ),
+                    onRatingUpdate: (rating) => setState(() {
+                      rating2 = rating;
+                    }),
+                  ),
+                  const SizedBox(height: 10),
+
+                  // Rating Display
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Rating Number: ${rating2.toInt()}',
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                      Text(
+                        getReviewText(rating2),
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                  const Divider(),
+
+                  // Question 3
+                  const Text(
+                    "Did the class finish on time?",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  const SizedBox(height: 10),
+
+                  // Rating Bar for Question 3
+                  RatingBar.builder(
+                    initialRating: 0,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: false,
+                    itemCount: 5,
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 4),
+                    itemBuilder: (context, _) => const Icon(
+                      Icons.star,
+                      color: Color.fromARGB(255, 26, 88, 119),
+                    ),
+                    onRatingUpdate: (rating) => setState(() {
+                      rating3 = rating;
+                    }),
+                  ),
+                  const SizedBox(height: 10),
+
+                  // Rating Display
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Rating Number: ${rating3.toInt()}',
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                      Text(
+                        getReviewText(rating3),
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+
+                  // // Display all ratings
+                  // const SizedBox(height: 20),
+                  // Center(
+                  //   child: Text(
+                  //     'Overall Ratings: \nClass start time: $rating1\nClass experience: $rating2\nClass end time: $rating3',
+                  //     style: const TextStyle(fontSize: 18),
+                  //     textAlign: TextAlign.center,
+                  //   ),
+                  // ),
+                ],
               ),
-              onRatingUpdate: (rating) => setState(() {
-                rating2 = rating;
-              }),
             ),
-            const SizedBox(height: 10),
-
-            // Rating display section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Rating Number: ${rating2.toInt()}',
-                  style: const TextStyle(fontSize: 16),
-                ),
-                Text(
-                  getReviewText(rating2),
-                  style: const TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-            const Divider(),
-
-            // Question 3
-            const Text(
-              "Did the class finish on time?",
-              style: TextStyle(fontSize: 18),
-            ),
-            const SizedBox(height: 10),
-
-            // Rating Bar
-            RatingBar.builder(
-              initialRating: 0,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: false,
-              itemCount: 5,
-              itemPadding: const EdgeInsets.symmetric(horizontal: 4),
-              itemBuilder: (context, _) => const Icon(
-                Icons.star,
-                color: Color.fromARGB(255, 26, 88, 119),
-              ),
-              onRatingUpdate: (rating) => setState(() {
-                rating3 = rating;
-              }),
-            ),
-            const SizedBox(height: 10),
-
-            // Rating display section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Rating Number: ${rating3.toInt()}',
-                  style: const TextStyle(fontSize: 16),
-                ),
-                Text(
-                  getReviewText(rating3),
-                  style: const TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-            const Divider(),
-
-            // // Display all ratings
-            // const SizedBox(height: 20),
-            // Center(
-            //   child: Text(
-            //     'Overall Ratings: \nClass start time: $rating1\nClass experience: $rating2\nClass end time: $rating3',
-            //     style: const TextStyle(fontSize: 18),
-            //     textAlign: TextAlign.center,
-            //   ),
-            // ),
           ],
         ),
       ),
@@ -192,6 +213,15 @@ class _AppratingState extends State<Apprating> {
 
 
 
+ // // Display all ratings
+            // const SizedBox(height: 20),
+            // Center(
+            //   child: Text(
+            //     'Overall Ratings: \nClass start time: $rating1\nClass experience: $rating2\nClass end time: $rating3',
+            //     style: const TextStyle(fontSize: 18),
+            //     textAlign: TextAlign.center,
+            //   ),
+            // ),
 
 
 
