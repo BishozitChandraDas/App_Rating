@@ -46,7 +46,7 @@ class _AppratingState extends State<Apprating> {
               "Rating after clock out",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20),
+            // const SizedBox(height: 10),
 
             // Rectangular Container
             Container(
@@ -75,7 +75,7 @@ class _AppratingState extends State<Apprating> {
                     "How was the class?",
                     style: TextStyle(fontSize: 18),
                   ),
-                  const SizedBox(height: 10),
+                  // const SizedBox(height: 10),
 
                   // Rating Bar for Question 1
                   RatingBar.builder(
@@ -87,13 +87,13 @@ class _AppratingState extends State<Apprating> {
                     itemPadding: const EdgeInsets.symmetric(horizontal: 4),
                     itemBuilder: (context, _) => const Icon(
                       Icons.star,
-                      color: Color.fromARGB(255, 26, 88, 119), 
+                      color: Color.fromARGB(255, 26, 88, 119),
                     ),
                     onRatingUpdate: (rating) => setState(() {
                       rating1 = rating;
                     }),
                   ),
-                  const SizedBox(height: 10),
+                  // const SizedBox(height: 10),
 
                   // Rating Display
                   Row(
@@ -101,11 +101,11 @@ class _AppratingState extends State<Apprating> {
                     children: [
                       Text(
                         'Rating Number: ${rating1.toInt()}',
-                        style: const TextStyle(fontSize: 12),
+                        style: const TextStyle(fontSize: 10),
                       ),
                       Text(
                         getReviewText(rating1),
-                        style: const TextStyle(fontSize: 12),
+                        style: const TextStyle(fontSize: 10),
                       ),
                     ],
                   ),
@@ -116,7 +116,7 @@ class _AppratingState extends State<Apprating> {
                     "How was the instructor?",
                     style: TextStyle(fontSize: 18),
                   ),
-                  const SizedBox(height: 10),
+                  // const SizedBox(height: 10),
 
                   // Rating Bar for Question 2
                   RatingBar.builder(
@@ -134,7 +134,7 @@ class _AppratingState extends State<Apprating> {
                       rating2 = rating;
                     }),
                   ),
-                  const SizedBox(height: 10),
+                  // const SizedBox(height: 10),
 
                   // Rating Display
                   Row(
@@ -142,11 +142,11 @@ class _AppratingState extends State<Apprating> {
                     children: [
                       Text(
                         'Rating Number: ${rating2.toInt()}',
-                        style: const TextStyle(fontSize: 12),
+                        style: const TextStyle(fontSize: 10),
                       ),
                       Text(
                         getReviewText(rating2),
-                        style: const TextStyle(fontSize: 12),
+                        style: const TextStyle(fontSize: 10),
                       ),
                     ],
                   ),
@@ -157,7 +157,7 @@ class _AppratingState extends State<Apprating> {
                     "Did the class finish on time?",
                     style: TextStyle(fontSize: 18),
                   ),
-                  const SizedBox(height: 10),
+                  // const SizedBox(height: 10),
 
                   // Rating Bar for Question 3
                   RatingBar.builder(
@@ -175,7 +175,7 @@ class _AppratingState extends State<Apprating> {
                       rating3 = rating;
                     }),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 5),
 
                   // Rating Display
                   Row(
@@ -183,24 +183,14 @@ class _AppratingState extends State<Apprating> {
                     children: [
                       Text(
                         'Rating Number: ${rating3.toInt()}',
-                        style: const TextStyle(fontSize: 12),
+                        style: const TextStyle(fontSize: 10),
                       ),
                       Text(
                         getReviewText(rating3),
-                        style: const TextStyle(fontSize: 12),
+                        style: const TextStyle(fontSize: 10),
                       ),
                     ],
                   ),
-
-                  // // Display all ratings
-                  // const SizedBox(height: 20),
-                  // Center(
-                  //   child: Text(
-                  //     'Overall Ratings: \nClass start time: $rating1\nClass experience: $rating2\nClass end time: $rating3',
-                  //     style: const TextStyle(fontSize: 18),
-                  //     textAlign: TextAlign.center,
-                  //   ),
-                  // ),
                 ],
               ),
             ),
@@ -210,6 +200,7 @@ class _AppratingState extends State<Apprating> {
     );
   }
 }
+
 
 
 
