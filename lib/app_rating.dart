@@ -202,8 +202,6 @@ class _AppratingState extends State<Apprating> {
 }
 
 
-
-
  // // Display all ratings
             // const SizedBox(height: 20),
             // Center(
